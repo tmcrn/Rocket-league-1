@@ -1,7 +1,8 @@
 /* ─── ORNEMENT VOLUTE (filet décoratif style club 1920) ─────── */
 export function ScrollOrnament({ color = '#A6813F', width = 280 }: { color?: string; width?: number }) {
   return (
-    <svg width={width} height={Math.round(width * 0.22)} viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg width={width} height={Math.round(width * 0.22)} viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+      style={{ display: 'block', margin: '0 auto' }}>
       {/* Trait central */}
       <line x1="0" y1="30" x2="280" y2="30" stroke={color} strokeWidth="0.6" opacity="0.35"/>
       {/* Volute gauche */}
