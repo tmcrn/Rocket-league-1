@@ -1,0 +1,10 @@
+{
+  "description": "Discover the elegance of Rocket France Series, a national Rocket League championship site designed to reflect the sophistication of a premier sports league.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
