@@ -111,20 +111,20 @@ export default function App() {
       {/* ══ HEADER ══════════════════════════════════════════════ */}
       <header
         className="sticky top-0 z-50"
-        style={{ backgroundColor: 'rgba(248,244,236,0.96)', borderBottom: '1px solid var(--border-bronze)' }}
+        style={{ backgroundColor: 'rgba(34,29,22,0.96)', borderBottom: '1px solid var(--border-bronze)' }}
       >
         {/* Filet tricolore */}
         <div className="tricolor-bar"><span/><span/><span/></div>
 
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
           {/* Nav gauche */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-10 justify-self-start col-start-1">
             <a href="#equipes"    className="nav-link">Équipes</a>
             <a href="#format"     className="nav-link">Format</a>
           </nav>
 
           {/* Logo centré */}
-          <a href="#" className="flex flex-col items-center gap-1 mx-auto md:mx-0" aria-label="Accueil RFS">
+          <a href="#" className="flex flex-col items-center gap-1 justify-self-center col-start-2" aria-label="Accueil RFS">
             <Blason size={52} />
             <span style={{ fontFamily: "'Cormorant SC', serif", fontWeight: 600, letterSpacing: '0.35em', fontSize: '0.55rem', color: 'var(--bronze)' }}>
               ROCKET FRANCE SERIES
@@ -132,13 +132,13 @@ export default function App() {
           </a>
 
           {/* Nav droite */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-10 justify-self-end col-start-3">
             <a href="#classement" className="nav-link">Classement</a>
             <a href="#contact"    className="nav-link">Contact</a>
           </nav>
 
           {/* Hamburger */}
-          <button className="md:hidden" onClick={() => setMobile(!mobileOpen)} aria-label="Menu" style={{ color: 'var(--ink-soft)' }}>
+          <button className="md:hidden justify-self-end col-start-3" onClick={() => setMobile(!mobileOpen)} aria-label="Menu" style={{ color: 'var(--ink-soft)' }}>
             <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
               <line x1="0" y1="1"  x2="22" y2="1"  stroke="currentColor" strokeWidth="1.2"/>
               <line x1="0" y1="8"  x2="22" y2="8"  stroke="currentColor" strokeWidth="1.2"/>
@@ -191,7 +191,7 @@ export default function App() {
                 fontFamily: "'Bodoni Moda', serif",
                 fontWeight: 700,
                 fontSize: 'clamp(2.8rem, 8vw, 7rem)',
-                color: 'var(--ivory)',
+                color: 'var(--ink)',
                 letterSpacing: '0.02em',
                 lineHeight: 1.05,
                 textShadow: '0 2px 32px rgba(0,0,0,0.6)',
@@ -248,7 +248,7 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#classement" className="btn-outline-gold" style={{ color: 'var(--bronze-light)', borderColor: 'var(--bronze-light)' }}>Voir le classement</a>
-            <a href="#equipes"    className="btn-outline-gold" style={{ color: 'var(--ivory)', borderColor: 'rgba(248,244,236,0.5)' }}>Les équipes</a>
+            <a href="#equipes"    className="btn-outline-gold" style={{ color: 'var(--ink)', borderColor: 'rgba(248,244,236,0.5)' }}>Les équipes</a>
           </div>
         </div>
 
@@ -351,9 +351,9 @@ export default function App() {
       </section>
 
       {/* ══ GRANDE FINALE ══════════════════════════════════════ */}
-      <section className="py-20 px-6 text-center" style={{ backgroundColor: 'var(--ink)', borderTop: '1px solid var(--border-bronze)' }}>
+      <section className="py-20 px-6 text-center" style={{ backgroundColor: '#120F09', borderTop: '1px solid var(--border-bronze)' }}>
         <p className="label-sc mb-5" style={{ color: 'var(--bronze-light)' }}>Décembre &nbsp;·&nbsp; Annuelle</p>
-        <h2 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 500, color: 'var(--ivory)', maxWidth: '32rem', margin: '0 auto 1.25rem' }}>
+        <h2 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 500, color: 'var(--ink)', maxWidth: '32rem', margin: '0 auto 1.25rem' }}>
           La Grande Finale
         </h2>
         <p className="font-cormorant italic mx-auto" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, fontStyle: 'italic', fontSize: '1.15rem', color: 'rgba(248,244,236,0.7)', maxWidth: '30rem', lineHeight: 1.7 }}>
@@ -484,14 +484,14 @@ export default function App() {
       <section className="py-20 px-6 text-center" style={{ backgroundColor: 'var(--blue)' }}>
         <p className="label-sc mb-6" style={{ color: 'rgba(248,244,236,0.7)' }}>Saison Prologue 2026</p>
         <h2 className="font-bodoni mb-5 mx-auto"
-          style={{ fontFamily: "'Bodoni Moda', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 500, color: 'var(--ivory)', maxWidth: '34rem' }}>
+          style={{ fontFamily: "'Bodoni Moda', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 500, color: 'var(--ink)', maxWidth: '34rem' }}>
           Rejoignez la compétition
         </h2>
         <p className="font-cormorant italic mb-10 mx-auto"
           style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, fontStyle: 'italic', fontSize: '1.2rem', color: 'rgba(248,244,236,0.75)', maxWidth: '28rem', lineHeight: 1.65 }}>
           Les candidatures pour la prochaine saison ouvrent en janvier 2026.
         </p>
-        <a href="#contact" className="btn-outline-gold" style={{ color: 'var(--ivory)', borderColor: 'rgba(248,244,236,0.5)' }}>Déposer une candidature</a>
+        <a href="#contact" className="btn-outline-gold" style={{ color: 'var(--ink)', borderColor: 'rgba(248,244,236,0.5)' }}>Déposer une candidature</a>
       </section>
 
       {/* ══ FOOTER ══════════════════════════════════════════════ */}

@@ -5,24 +5,24 @@
 @import 'tailwindcss';
 
 :root {
-  --ivory:      #F8F4EC;
-  --ivory-dim:  #F1EBDD;
-  --ink:        #1C1712;
-  --ink-soft:   rgba(28,23,18,0.68);
-  --ink-faint:  rgba(28,23,18,0.45);
+  --ivory:      #221D16;
+  --ivory-dim:  #1A160F;
+  --ink:        #EDE4D3;
+  --ink-soft:   rgba(237,228,211,0.72);
+  --ink-faint:  rgba(237,228,211,0.48);
 
-  --bronze:      #A6813F;
-  --bronze-light: #C9A868;
-  --terracotta:  #B5623C;
-  --blue:        #2E4374;
+  --bronze:      #C9A868;
+  --bronze-light: #E3C888;
+  --terracotta:  #C97850;
+  --blue:        #5A74AC;
 
   --white:      #FFFFFF;
 
-  --border-bronze: rgba(166,129,63,0.32);
-  --border-bronze-strong: rgba(166,129,63,0.6);
+  --border-bronze: rgba(201,168,104,0.30);
+  --border-bronze-strong: rgba(201,168,104,0.55);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; font-size: 111%; }
 
 body {
   background-color: var(--ivory);
@@ -141,7 +141,7 @@ body {
   width: 100%;
 }
 .tricolor-bar span:nth-child(1) { background: var(--blue); flex: 1; }
-.tricolor-bar span:nth-child(2) { background: var(--ivory-dim); flex: 1; }
+.tricolor-bar span:nth-child(2) { background: var(--white); flex: 1; }
 .tricolor-bar span:nth-child(3) { background: var(--terracotta); flex: 1; }
 
 /* ── Bronze pinstripe ornement ── */
