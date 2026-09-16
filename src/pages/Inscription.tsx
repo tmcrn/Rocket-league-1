@@ -10,7 +10,6 @@ const emptyPlayer: Player = { pseudo: '', platformId: '', discord: '' }
 export default function Inscription() {
   const [teamName, setTeamName]   = useState('')
   const [teamTag, setTeamTag]     = useState('')
-  const [city, setCity]           = useState('')
   const [captainName, setCaptainName]   = useState('')
   const [captainEmail, setCaptainEmail] = useState('')
   const [captainDiscord, setCaptainDiscord] = useState('')
@@ -119,13 +118,6 @@ export default function Inscription() {
               </div>
             </div>
 
-            <div className="mb-8">
-              <label className="field-label" htmlFor="city">Ville / région représentée *</label>
-              <input id="city" className="field-input" required
-                value={city} onChange={e => setCity(e.target.value)}
-                placeholder="Ex. Paris" />
-            </div>
-
             <div>
               <label className="field-label" htmlFor="logo">Logo de l'équipe</label>
               <div className="flex items-center gap-5">
@@ -209,7 +201,7 @@ export default function Inscription() {
                         value={player.pseudo} onChange={e => updatePlayer(i, 'pseudo', e.target.value)} />
                     </div>
                     <div>
-                      <label className="field-label">Identifiant (Epic / Steam / PSN / Xbox) {i < 3 && '*'}</label>
+                      <label className="field-label">Identifiant Epic Games {i < 3 && '*'}</label>
                       <input className="field-input" required={i < 3}
                         value={player.platformId} onChange={e => updatePlayer(i, 'platformId', e.target.value)} />
                     </div>

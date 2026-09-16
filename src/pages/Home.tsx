@@ -6,14 +6,14 @@ import { ScrollOrnament, TeamBadge } from '../components/Blason'
 /* ─── DATA ─────────────────────────────────────────────────── */
 
 const TEAMS = [
-  { name: 'Paris Élite FC',   city: 'Paris',      abbr: 'PEF', letter: 'P' },
-  { name: 'Lyon Mécanique',   city: 'Lyon',        abbr: 'LYM', letter: 'L' },
-  { name: 'Marseille Boost',  city: 'Marseille',   abbr: 'MBT', letter: 'M' },
-  { name: 'Bordeaux Aero',    city: 'Bordeaux',    abbr: 'BDA', letter: 'B' },
-  { name: 'Lille Driveurs',   city: 'Lille',       abbr: 'LLD', letter: 'L' },
-  { name: 'Nantes Fusée',     city: 'Nantes',      abbr: 'NTF', letter: 'N' },
-  { name: 'Toulouse Apex',    city: 'Toulouse',    abbr: 'TAX', letter: 'T' },
-  { name: 'Strasbourg Vol',   city: 'Strasbourg',  abbr: 'STV', letter: 'S' },
+  { name: 'Paris Élite FC', abbr: 'PEF', letter: 'P' },
+  { name: 'Lyon Mécanique', abbr: 'LYM', letter: 'L' },
+  { name: 'Marseille Boost', abbr: 'MBT', letter: 'M' },
+  { name: 'Bordeaux Aero', abbr: 'BDA', letter: 'B' },
+  { name: 'Lille Driveurs', abbr: 'LLD', letter: 'L' },
+  { name: 'Nantes Fusée', abbr: 'NTF', letter: 'N' },
+  { name: 'Toulouse Apex', abbr: 'TAX', letter: 'T' },
+  { name: 'Strasbourg Vol', abbr: 'STV', letter: 'S' },
 ]
 
 const CLASSEMENT = [
@@ -263,13 +263,10 @@ export default function Home() {
             {TEAMS.map((team) => (
               <div key={team.name} className="team-card flex flex-col items-center gap-4">
                 <TeamBadge letter={team.letter} />
-                <div>
-                  <p className="font-bodoni text-center"
-                    style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '0.95rem', fontWeight: 500, color: 'var(--ink)', lineHeight: 1.3 }}>
-                    {team.name}
-                  </p>
-                  <p className="label-sc text-center mt-1" style={{ fontSize: '0.58rem', color: 'var(--ink-faint)' }}>{team.city}</p>
-                </div>
+                <p className="font-bodoni text-center"
+                  style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '0.95rem', fontWeight: 500, color: 'var(--ink)', lineHeight: 1.3 }}>
+                  {team.name}
+                </p>
               </div>
             ))}
           </div>
