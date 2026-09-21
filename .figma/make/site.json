@@ -2,7 +2,7 @@
   "title": "Rocket France Series",
   "description": "Rocket France Series (RFS), le championnat national de Rocket League pensé comme une vraie ligue sportive française : équipes, calendrier, classement et inscriptions.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
