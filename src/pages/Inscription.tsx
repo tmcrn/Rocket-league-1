@@ -29,6 +29,8 @@ export default function Inscription() {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const updatePlayer = (index: number, field: keyof Player, value: string) => {
     setPlayers(prev => prev.map((p, i) => (i === index ? { ...p, [field]: value } : p)))
@@ -54,10 +56,59 @@ export default function Inscription() {
     }
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setSubmitError(null)
+
+    const formId = import.meta.env.VITE_FORMSPREE_FORM_ID
+    if (!formId) {
+      setSubmitError("Le formulaire n'est pas encore connecté (VITE_FORMSPREE_FORM_ID manquant). Contactez-nous directement par email en attendant.")
+      return
+    }
+
+    const data = new FormData()
+    data.append('_subject', `Candidature RFS — ${teamName || 'équipe sans nom'}`)
+    data.append('_replyto', captainEmail)
+
+    data.append("Nom de l'équipe", teamName)
+    data.append('Tag', teamTag)
+    if (logoFile) data.append('Logo', logoFile)
+
+    data.append('Capitaine — nom', captainName)
+    data.append('Capitaine — email', captainEmail)
+    data.append('Capitaine — Discord', captainDiscord)
+
+    players.forEach((p, i) => {
+      const label = i < 3 ? `Joueur ${i + 1} (titulaire)` : 'Joueur 4 (remplaçant)'
+      data.append(`${label} — pseudo`, p.pseudo)
+      data.append(`${label} — Epic Games`, p.platformId)
+      data.append(`${label} — Discord`, p.discord)
+    })
+
+    if (hasCoach) {
+      data.append('Coach — pseudo', coach.pseudo)
+      data.append('Coach — rôle/expérience', coach.platformId)
+      data.append('Coach — Discord', coach.discord)
+    }
+
+    if (twitch) data.append('Présence en ligne', twitch)
+    data.append('Justification', justification)
+
+    setSubmitting(true)
+    try {
+      const res = await fetch(`https://formspree.io/f/${formId}`, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+      if (!res.ok) throw new Error('request failed')
+      setSubmitted(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch {
+      setSubmitError("L'envoi a échoué. Vérifiez votre connexion et réessayez, ou écrivez-nous directement à contact@rocketfranceseries.fr.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -287,7 +338,16 @@ export default function Inscription() {
               </span>
             </label>
 
-            <button type="submit" className="btn-outline-gold w-full sm:w-auto">Envoyer ma candidature</button>
+            {submitError && (
+              <p className="mb-6" style={{ fontFamily: "'EB Garamond', serif", fontSize: '0.9rem', color: 'var(--terracotta)' }}>
+                {submitError}
+              </p>
+            )}
+
+            <button type="submit" disabled={submitting} className="btn-outline-gold w-full sm:w-auto"
+              style={submitting ? { opacity: 0.6, cursor: 'wait' } : undefined}>
+              {submitting ? 'Envoi en cours…' : 'Envoyer ma candidature'}
+            </button>
           </div>
         </form>
       </div>
