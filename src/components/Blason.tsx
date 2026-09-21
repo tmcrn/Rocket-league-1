@@ -24,46 +24,58 @@ export function ScrollOrnament({ color = '#A6813F', width = 280 }: { color?: str
 }
 
 /* ─── SVG EMBLÈME PRINCIPAL ────────────────────────────────── */
-// Écusson sobre ivoire/encre, filet bronze, touche tricolore fine en pied de blason
+// Écusson à épaules droites et pointe basse, motif d'aile gravée en filigrane
+// bronze — inspiré d'un blason héraldique classique (griffon ailé stylisé).
 export function Blason({ size = 64 }: { size?: number }) {
   const s = size
-  const h = Math.round(s * 1.2)
+  const h = Math.round(s * 1.233)
   return (
-    <svg width={s} height={h} viewBox="0 0 64 77" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Emblème RFS"
+    <svg width={s} height={h} viewBox="0 0 120 148" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Emblème RFS"
       style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.45))' }}>
       {/* Contour écusson */}
-      <path d="M32 2L62 14V42C62 58 48 68 32 75C16 68 2 58 2 42V14L32 2Z" fill="#F8F4EC" stroke="#A6813F" strokeWidth="1.5"/>
+      <path d="M14,10 L106,10 L106,84 C106,104 96,120 82,131 L60,140 L38,131 C24,120 14,104 14,84 Z"
+        fill="#F8F4EC" stroke="#A6813F" strokeWidth="2"/>
       {/* Fond intérieur ivoire légèrement ombré */}
-      <path d="M32 8L56 18V40C56 53 44 62 32 69C20 62 8 53 8 40V18L32 8Z" fill="#F1EBDD"/>
+      <path d="M20,16 L100,16 L100,82 C100,99 91,113 79,123 L60,131 L41,123 C29,113 20,99 20,82 Z"
+        fill="#F1EBDD"/>
 
-      {/* Motif aile/fusée en encre */}
-      <path d="M20 48 C16 40 14 30 18 22 C20 18 23 16 24 20 C22 24 22 30 24 35 Z" fill="#1C1712"/>
-      <path d="M32 18 L29 30 L32 44 L35 30 Z" fill="#1C1712"/>
-      <path d="M44 48 C48 40 50 30 46 22 C44 18 41 16 40 20 C42 24 42 30 40 35 Z" fill="#1C1712"/>
-      <path d="M24 35 C20 36 17 38 19 42 C22 44 28 42 32 44 Z" fill="#A6813F" opacity="0.8"/>
-      <path d="M40 35 C44 36 47 38 45 42 C42 44 36 42 32 44 Z" fill="#A6813F" opacity="0.8"/>
+      {/* Aile gauche — trois plumes gravées en éventail */}
+      <path d="M58,78 C46,68 36,52 34,34 C33,26 37,20 42,22 C40,32 42,46 48,58 C52,66 56,72 60,78 Z" fill="#1C1712"/>
+      <path d="M56,82 C42,74 30,60 26,42 C24,34 28,27 34,29 C31,38 33,52 40,64 C45,72 50,78 56,82 Z" fill="#A6813F" opacity="0.85"/>
+      <path d="M54,86 C38,80 24,68 18,50 C16,42 20,35 26,37 C23,46 26,60 34,71 C40,79 47,84 54,86 Z" fill="#A6813F" opacity="0.55"/>
+
+      {/* Aile droite — miroir */}
+      <path d="M62,78 C74,68 84,52 86,34 C87,26 83,20 78,22 C80,32 78,46 72,58 C68,66 64,72 60,78 Z" fill="#1C1712"/>
+      <path d="M64,82 C78,74 90,60 94,42 C96,34 92,27 86,29 C89,38 87,52 80,64 C75,72 70,78 64,82 Z" fill="#A6813F" opacity="0.85"/>
+      <path d="M66,86 C82,80 96,68 102,50 C104,42 100,35 94,37 C97,46 94,60 86,71 C80,79 73,84 66,86 Z" fill="#A6813F" opacity="0.55"/>
+
+      {/* Corps central / fusée */}
+      <path d="M60,38 L55,70 L60,102 L65,70 Z" fill="#1C1712"/>
 
       {/* Filet tricolore discret en bas du blason */}
-      <rect x="18" y="56" width="10" height="2.5" fill="#2E4374"/>
-      <rect x="28" y="56" width="8"  height="2.5" fill="#F8F4EC"/>
-      <rect x="36" y="56" width="10" height="2.5" fill="#B5623C"/>
+      <rect x="45" y="106" width="10" height="3" fill="#2E4374"/>
+      <rect x="55" y="106" width="10" height="3" fill="#F8F4EC"/>
+      <rect x="65" y="106" width="10" height="3" fill="#B5623C"/>
 
       {/* Texte RFS */}
-      <text x="32" y="70" textAnchor="middle"
-        fontFamily="'Cormorant SC', serif" fontSize="7"
-        fill="#A6813F" letterSpacing="3">RFS</text>
+      <text x="60" y="124" textAnchor="middle"
+        fontFamily="'Cormorant SC', serif" fontSize="13"
+        fill="#A6813F" letterSpacing="5">RFS</text>
     </svg>
   )
 }
 
 /* ─── BLASON ÉQUIPE (petit) ────────────────────────────────── */
+// Même silhouette d'écusson que le blason principal, sans le motif d'aile
+// (illisible en petite taille) — garde une identité visuelle cohérente.
 export function TeamBadge({ letter }: { letter: string }) {
   return (
-    <svg width="48" height="58" viewBox="0 0 48 58" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <svg width="48" height="59" viewBox="0 0 90 111" fill="none" xmlns="http://www.w3.org/2000/svg"
       style={{ filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.4))' }}>
-      <path d="M24 1.5L46.5 11V34C46.5 46 36 54 24 57C12 54 1.5 46 1.5 34V11L24 1.5Z" fill="#F8F4EC" stroke="#A6813F" strokeWidth="1"/>
-      <text x="24" y="36" textAnchor="middle"
-        fontFamily="'Bodoni Moda', serif" fontSize="20" fontWeight="600"
+      <path d="M10.5,7.5 L79.5,7.5 L79.5,63 C79.5,78 72,90 61.5,98.25 L45,105 L28.5,98.25 C18,90 10.5,78 10.5,63 Z"
+        fill="#F8F4EC" stroke="#A6813F" strokeWidth="1.5"/>
+      <text x="45" y="68" textAnchor="middle"
+        fontFamily="'Bodoni Moda', serif" fontSize="36" fontWeight="600"
         fill="#1C1712">{letter}</text>
     </svg>
   )
