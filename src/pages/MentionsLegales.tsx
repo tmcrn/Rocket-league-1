@@ -48,10 +48,8 @@ export default function MentionsLegales() {
 
           <Section title="Hébergement">
             <p>
-              Ce site est hébergé par un prestataire tiers.
-              <em style={{ display: 'block', marginTop: '0.5rem', color: 'var(--ink-faint)' }}>
-                — Raison sociale, adresse et contact de l'hébergeur à compléter avant mise en ligne publique. —
-              </em>
+              Ce site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.<br/>
+              Site de l'hébergeur : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bronze)' }}>vercel.com</a>
             </p>
           </Section>
 
