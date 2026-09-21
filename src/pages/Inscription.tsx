@@ -7,6 +7,10 @@ type Player = { pseudo: string; platformId: string; discord: string }
 
 const emptyPlayer: Player = { pseudo: '', platformId: '', discord: '' }
 
+// Endpoint public Formspree (pas un secret, il est visible dans le HTML de tout
+// formulaire qui l'utilise) — VITE_FORMSPREE_FORM_ID permet de le surcharger.
+const FORMSPREE_FORM_ID = import.meta.env.VITE_FORMSPREE_FORM_ID || 'xvkgazvy'
+
 export default function Inscription() {
   const [teamName, setTeamName]   = useState('')
   const [teamTag, setTeamTag]     = useState('')
@@ -60,12 +64,6 @@ export default function Inscription() {
     e.preventDefault()
     setSubmitError(null)
 
-    const formId = import.meta.env.VITE_FORMSPREE_FORM_ID
-    if (!formId) {
-      setSubmitError("Le formulaire n'est pas encore connecté (VITE_FORMSPREE_FORM_ID manquant). Contactez-nous directement par email en attendant.")
-      return
-    }
-
     const data = new FormData()
     data.append('_subject', `Candidature RFS — ${teamName || 'équipe sans nom'}`)
     data.append('_replyto', captainEmail)
@@ -96,7 +94,7 @@ export default function Inscription() {
 
     setSubmitting(true)
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
